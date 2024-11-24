@@ -283,7 +283,7 @@ def predict_page(request):
             model = Model(2).cuda()  # Adjust the model instantiation according to your model structure
         else:
             model = Model(2).cpu()  # Adjust the model instantiation according to your model structure
-        model_name = os.path.join(settings.PROJECT_DIR, 'models', get_accurate_model(sequence_length))
+        model_name = os.path.join(settings.PROJECT_DIR, 'models/model.pt')
         path_to_model = os.path.join(settings.PROJECT_DIR, model_name)
         model.load_state_dict(torch.load(path_to_model, map_location=torch.device('cpu')))
         model.eval()
